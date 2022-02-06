@@ -12,3 +12,8 @@ def index():
 @login_required
 def profile():
     return render_template('profile.html', name=current_user.name)
+
+@main.route('/chat')
+@login_required
+def chat():
+    return render_template('chat.html')
