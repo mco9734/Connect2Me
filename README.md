@@ -8,14 +8,12 @@ To run the application, you must have the latest version of Python 3 and virtual
     virtualenv .meetandhack2022env
     .\.meetandhack2022env\Scripts\activate
     pip install -r requirements.txt
-    cd src
-    set FLASK_APP=app
+    set FLASK_APP=src\project
 ```
  ## Bash 
  ```
     virtualenv .meetandhack2022env
     source .meetandhack2022env/bin/activate
     pip install -r requirements.txt
-    cd src
-    export FLASK_APP=app.py
+    export FLASK_APP=src\project
  ```
