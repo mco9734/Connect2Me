@@ -178,4 +178,5 @@ sketch
 # End of https://www.toptal.com/developers/gitignore/api/react,flask
 
 # Bulma
-mybulma
+mybulma/
+.sass-cache/
