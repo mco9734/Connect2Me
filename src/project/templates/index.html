@@ -9,6 +9,14 @@
   Meet new people easily
 </h2>
 
+{% if current_user.is_authenticated %}
+
+<h3 class="subtitle">
+  Welcome {{ current_user.name }}!
+</h3>
+
+{% endif %}
+
 {% if current_user.is_authenticated and not(session['inChat']) %}
 <a href="{{ url_for('main.waiting') }}">
   <button class="button">
