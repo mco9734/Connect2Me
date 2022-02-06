@@ -5,12 +5,16 @@
   {% block content %}
 
 
-  <div class="message_holder"></div>
+<div class="message_holder box" style="background-color: #F5F5F5; width:50%; height: 60vh; overflow-y: auto; margin: 10px auto;"></div>
 
+<div  style='width: 50%; margin: 0 auto;'>
   <form action="" method="POST">
     <input class="input is-rounded message" type="text" placeholder="Messages"/>
     <input class="button" type="submit"/>
   </form>
+  </div>
+
+
 
   
 
@@ -38,7 +42,8 @@
       console.log( msg )
       if( typeof msg.user_name !== 'undefined' ) {
         $( 'h3' ).remove()
-        $( 'div.message_holder' ).append( '<div><b style="color: #000">'+msg.user_name+'</b> '+msg.message+'</div>' )
+        
+        $( 'div.message_holder' ).append( '<div style=text-align:right;"><b style="color: #000;">'+msg.user_name+'</b> '+msg.message+'</div>' )
       }
     })
   </script>
