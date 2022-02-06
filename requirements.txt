@@ -1,5 +1,4 @@
 flask_sqlalchemy
 flask
 flask_login
-python-dotenv
-email
+python_dotenv
