@@ -18,7 +18,7 @@
 {% endif %}
 
 {% if current_user.is_authenticated and not(session['inChat']) %}
-<a href="{{ url_for('main.waiting') }}">
+<a href="{{ url_for('chat.sessions') }}">
   <button class="button">
       New Chat!
   </button>
