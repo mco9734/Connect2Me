@@ -1,19 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Flask_Chat_App</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-<<<<<<< HEAD
   <h3 style='color: #ccc;font-size: 30px;'>No message yet..</h3>
+
+  {% block content %}
+
+
   <div class="message_holder"></div>
 
   <form action="" method="POST">
-    <input type="text" class="username" placeholder="User Name"/>
-    <input type="text" class="message" placeholder="Messages"/>
-    <input type="submit"/>
+    <input class="input is-rounded message" type="text" placeholder="Messages"/>
+    <input class="button" type="submit"/>
   </form>
+
+  
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -26,7 +25,7 @@
       } )
       var form = $( 'form' ).on( 'submit', function( e ) {
         e.preventDefault()
-        let user_name = $( 'input.username' ).val()
+        let user_name = '{{current_user.name}}'
         let user_input = $( 'input.message' ).val()
         socket.emit( 'my event', {
           user_name : user_name,
@@ -44,5 +43,5 @@
     })
   </script>
 
-</body>
-</html>
+{% endblock %}
+
