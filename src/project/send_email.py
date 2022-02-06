@@ -7,13 +7,14 @@ import random
 server = smtplib.SMTP("smtp.gmail.com", 587)
 server.starttls()
 load_dotenv()
-server.login("meet.and.hack.project@gmail.com", getenv("PASSWORD"))
+
+server.login(getenv("EMAIL"), getenv("PASSWORD"))
 
 def send_verification_email(email):
     msg = EmailMessage()
     msg["subject"] = "Verify your email"
     msg["to"] = email
-    msg["from"] = "meet.and.hack.project@gmail.com"
+    msg["from"] = getenv("EMAIL")
     code = ""
     for i in range(6):
         code += str(random.randint(0, 9))
