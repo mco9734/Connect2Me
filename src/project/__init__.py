@@ -1,17 +1,39 @@
+from flask_socketio import SocketIO
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+import eventlet
 
 # init SQLAlchemy so we can use it later in our models
 db = SQLAlchemy()
 
+
+
+
+
+
 def create_app():
     app = Flask(__name__)
 
-    app.config['SECRET_KEY'] = 'secret-key-goes-here'
+    app.config['SECRET_KEY'] = 'vnkdjnfjknfl1232#'
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 
     db.init_app(app)
+
+    socketio = SocketIO(app)
+
+    def messageReceived(methods=['GET', 'POST']):
+        print('message was received!!!')
+
+    @socketio.on('my event')
+    def handle_my_custom_event(json, methods=['GET', 'POST']):
+        print('received my event: ' + str(json))
+        socketio.emit('my response', json, callback=messageReceived)
+
+    
+
+
+
 
     login_manager = LoginManager()
     login_manager.login_view = 'auth.login'
@@ -31,5 +53,9 @@ def create_app():
     # blueprint for non-auth parts of app
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
+
+    # blueprint for chat part of app
+    from .chat import chat as chat_blueprint
+    app.register_blueprint(chat_blueprint)
 
     return app
