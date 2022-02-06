@@ -20,25 +20,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js"></script>
   <script type="text/javascript">
     var socket = io.connect('http://' + document.domain + ':' + location.port);
-=======
-{% block content %}
-
-<article class="message">
-    <div class="message-header">
-        {{ current_user.name }}
-    </div>
-    <div class="message-body">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque risus mi, tempus quis placerat ut, porta nec nulla.
-        Nullam gravida purus diam, et dictum felis venenatis efficitur. Aenean ac eleifend lacus, in mollis lectus.
-    </div>
-</article>
-
-<a href="{{ url_for('main.notInChat') }}">
-    <button class="button">
-        Quit
-    </button>
->>>>>>> dcede5f4cbaeceed923bce7794e5ce73ff35ec26
-
     socket.on( 'connect', function() {
       socket.emit( 'my event', {
         data: 'User Connected'
