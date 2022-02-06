@@ -23,10 +23,16 @@
       New Chat!
   </button>
 </a>
+<div class="field">
+  <label class="checkbox">
+      <input type="checkbox" name="remember">
+      Chat with only other RIT students
+  </label>
+</div>
 {% endif %}
 
 {% if current_user.is_authenticated and session['inChat'] %}
-<a href="{{ url_for('main.chat') }}">
+<a href="{{ url_for('chat.sessions') }}">
   <button class="button">
       Continue Chat!
   </button>
