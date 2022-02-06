@@ -13,10 +13,7 @@
     <input class="button" type="submit"/>
   </form>
   </div>
-
-
-
-  
+ 
 
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -24,9 +21,11 @@
   <script type="text/javascript">
     var socket = io.connect('http://' + document.domain + ':' + location.port);
     socket.on( 'connect', function() {
+        $( 'div.message_holder' ).append('<div>{{current_user.name}} Connected</div>')
       socket.emit( 'my event', {
         data: 'User Connected'
-      } )
+      }
+       )
       var form = $( 'form' ).on( 'submit', function( e ) {
         e.preventDefault()
         let user_name = '{{current_user.name}}'
@@ -42,8 +41,11 @@
       console.log( msg )
       if( typeof msg.user_name !== 'undefined' ) {
         $( 'h3' ).remove()
-        
-        $( 'div.message_holder' ).append( '<div style=text-align:right;"><b style="color: #000;">'+msg.user_name+'</b> '+msg.message+'</div>' )
+        if(msg.user_name === '{{current_user.name}}'){
+            $( 'div.message_holder' ).append( '<div style=text-align:right><b style="color: #CC8D98;">'+msg.user_name+'</b> '+msg.message+'</div>' )
+        }else{
+            $( 'div.message_holder' ).append( '<div style=text-align:left><b style="color: #8DA3CC;">'+msg.user_name+'</b> '+msg.message+'</div>' )
+        }
       }
     })
   </script>
