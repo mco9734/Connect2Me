@@ -21,7 +21,7 @@
   <script type="text/javascript">
     var socket = io.connect('http://' + document.domain + ':' + location.port);
     socket.on( 'connect', function() {
-        $( 'div.message_holder' ).append('<div>{{current_user.name}} Connected</div>')
+        $( 'div.message_holder' ).append('<div>Is cereal a soup?</div>')
       socket.emit( 'my event', {
         data: 'User Connected'
       }
