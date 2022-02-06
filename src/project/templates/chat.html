@@ -1,1 +1,11 @@
 {% extends "base.html" %}
+
+
+{% block content %}
+
+<a href="{{ url_for('main.notInChat') }}">
+    <button class="button">
+        Quit
+    </button>
+
+{% endblock %}

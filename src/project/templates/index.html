@@ -9,10 +9,18 @@
   Meet new people easily
 </h2>
 
-{% if current_user.is_authenticated %}
+{% if current_user.is_authenticated and not(session['inChat']) %}
+<a href="{{ url_for('main.waiting') }}">
+  <button class="button">
+      New Chat!
+  </button>
+</a>
+{% endif %}
+
+{% if current_user.is_authenticated and session['inChat'] %}
 <a href="{{ url_for('main.chat') }}">
   <button class="button">
-      Chat Now!
+      Continue Chat!
   </button>
 </a>
 {% endif %}
