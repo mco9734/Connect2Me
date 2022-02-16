@@ -1,5 +1,9 @@
 # MeetandHack2022
 Repository for M&amp;T Bank RIT Meet and Hack 2022 
+## Connect2Me
+Connect2Me is a web-based randomized messaging application, where you are paired with another random user and given an ice-breaker question. This encourages both users to have a long-form conversation, and possibly become friends.
+## How we built it
+Web application utilizing a Flask server, sqlite database, bulma, and jinja frontend.
 
 # Development
 To run the application, you must have the latest version of Python 3 and virtualenv installed. Once you have those installed, create a new virtualenv and install the Python dependencies:
